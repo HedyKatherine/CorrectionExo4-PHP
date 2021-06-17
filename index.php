@@ -15,17 +15,22 @@
                     <option>Mme</option>
                 </select>
                 <label>Nom</label>
-                <input type="text" name="lastName" placeholder="Votre nom" required>
+                <input type="text" name="lastName" placeholder="Votre nom">
                 <label>Prénom</label>
-                <input type="text" name="firstName" placeholder="Votre prénom" required>
+                <input type="text" name="firstName" placeholder="Votre prénom">
                 <input type="submit" name="valider" value="Valider"/>
             </form>
             <?php
-        } else {
-            if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['civilite'])) {
-                echo strip_tags('Bonjour ' . ' '. $_POST['civilite']. ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' !');
             }
-        }
+            $verifName = "/^[A-Z\.\-]+[A-Za-z\.\-]+[^0-9]$/";
+            if(isset($_POST['lastName']) && isset($_POST['firstName']) && isset($_POST['civilite'])){
+                if(preg_match($verifName, $_POST['lastName']) && preg_match($verifName, $_POST['firstName'])){
+               echo 'Bonjour '. ' ' . $_POST['civilite']. ' ' . $_POST['firstName']. ' ' . $_POST['lastName'];
+                }else{
+                   echo ' Veuillez vérifier votre saisie !';
+                }
+           }
+        
         ?> 
 </body>
 </html>
