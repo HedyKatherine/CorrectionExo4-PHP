@@ -1,13 +1,12 @@
+
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<?php
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exo4</title>
+    </head>
+    <body>
+            <?php
             if (empty($_POST['firstName']) && empty($_POST['lastName'])) {
                 ?>
             <form method="post" action="index.php">
@@ -22,17 +21,11 @@
                 <input type="submit" name="valider" value="Valider"/>
             </form>
             <?php
-      $verifName = "/^[A-Z\.\-]+[A-Za-z\.\-]+[^0-9]$/";
-      if(isset($_POST['lastName']) && isset($_POST['firstName']) && isset($_POST['civilite'])){
-          if(preg_match($verifName, $_POST['lastName']) && preg_match($verifName, $_POST['firstName'])){
-         echo 'Bonjour '. ' ' . $_POST['civilite']. ' ' . $_POST['firstName']. ' ' . $_POST['lastName'];
-          }else{
-             echo ' Veuillez vérifier votre saisie !';
-          }
-     }
-     
-     }
-        ?>
-  
+        } else {
+            if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['civilite'])) {
+                echo strip_tags('Bonjour ' . ' '. $_POST['civilite']. ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' !');
+            }
+        }
+        ?> 
 </body>
 </html>
