@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-            if (empty($_POST['firstnameForm']) && empty($_POST['lastnameForm'])) {
+            if (empty($_POST['firstName']) && empty($_POST['lastName'])) {
                 ?>
             <form method="post" action="index.php">
                 <select name="civilite">
